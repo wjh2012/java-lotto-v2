@@ -22,5 +22,21 @@ public class Lotto {
         }
     }
 
+    private void validateRange(List<Integer> numbers) {
+        if (!validateNumbers(numbers)){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private boolean validateNumbers(List<Integer> numbers){
+        return numbers.stream()
+                .allMatch(this::rangeCheck);
+    }
+
+    private boolean rangeCheck(int number) {
+        return number >= NUMBER_START_INCLUSIVE && number <= NUMBER_END_INCLUSIVE;
+    }
+
+
     // TODO: 추가 기능 구현
 }
