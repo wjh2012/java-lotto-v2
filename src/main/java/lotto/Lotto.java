@@ -30,13 +30,12 @@ public class Lotto {
 
     private boolean validateNumbers(List<Integer> numbers){
         return numbers.stream()
-                .allMatch(this::rangeCheck);
+                .allMatch(this::validateNumber);
     }
 
-    private boolean rangeCheck(int number) {
+    private boolean validateNumber(int number) {
         return number >= NUMBER_START_INCLUSIVE && number <= NUMBER_END_INCLUSIVE;
     }
-
-
+    
     // TODO: 추가 기능 구현
 }
