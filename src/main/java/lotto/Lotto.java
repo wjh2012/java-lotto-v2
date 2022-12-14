@@ -13,6 +13,7 @@ public class Lotto {
     public Lotto(List<Integer> numbers) {
         validateSize(numbers);
         validateRange(numbers);
+        validateDuplicated(numbers);
         this.numbers = numbers;
     }
 
@@ -36,6 +37,12 @@ public class Lotto {
     private boolean validateNumber(int number) {
         return number >= NUMBER_START_INCLUSIVE && number <= NUMBER_END_INCLUSIVE;
     }
-    
+
+    private void validateDuplicated(List<Integer> numbers) {
+        if (numbers.stream().distinct().count() != numbers.size()) {
+            throw new IllegalArgumentException("중복된 숫자를 포함할 수 없습니다.");
+        }
+    }
+
     // TODO: 추가 기능 구현
 }
