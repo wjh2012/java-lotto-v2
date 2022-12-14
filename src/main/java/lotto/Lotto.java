@@ -6,12 +6,13 @@ public class Lotto {
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
-        validate(numbers);
+        validateSize(numbers);
+        validateRange(numbers);
         this.numbers = numbers;
     }
 
-    private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
+    private void validateSize(List<Integer> numbers) {
+        if (numbers.size() != NUMBER_SIZE) {
             throw new IllegalArgumentException();
         }
     }
