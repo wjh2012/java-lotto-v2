@@ -19,13 +19,13 @@ public class Lotto {
 
     private void validateSize(List<Integer> numbers) {
         if (numbers.size() != NUMBER_SIZE) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NUMBER_SIZE+"개의 숫자만 가능합니다.");
         }
     }
 
     private void validateRange(List<Integer> numbers) {
         if (!validateNumbers(numbers)){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("범위를 벗어난 숫자입니다.");
         }
     }
 
